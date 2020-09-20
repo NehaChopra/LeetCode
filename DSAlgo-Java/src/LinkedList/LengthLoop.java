@@ -1,6 +1,9 @@
-//https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
+//https://www.geeksforgeeks.org/find-length-of-loop-in-linked-list/
 package LinkedList;
 
+/*
+ *  Floyd’s Cycle detection algorithm 
+ */
 class Node {
 	int data;
 	Node next;
@@ -39,24 +42,26 @@ class LinkedList {
 		return Node;
 	}
 
-	public boolean detectLoop(Node head) {
+	public int lengthLoop(Node head) {
+		int count = 0;
 		if (head == null) {
-			return false;
+			return count;
 		}
 		Node slow = head;
 		Node fast = head;
 		while (slow.next != null && fast.next != null) {
 			slow = slow.next;
 			fast = fast.next.next;
+			count++;
 			if (slow == fast) {
-				return true;
+				return count;
 			}
 		}
-		return false;
+		return count;
 	}
 }
 
-public class DetectLoop {
+public class LengthLoop {
 	public static void main(String[] args) {
 		LinkedList ls = new LinkedList();
 		ls.add(20);
@@ -64,7 +69,7 @@ public class DetectLoop {
 		ls.add(15);
 		ls.add(10);
 		ls.head.next.next.next.next = ls.head;
-		System.out.println(ls.detectLoop(ls.head));
+		System.out.println(ls.lengthLoop(ls.head));
 	}
 
 }
