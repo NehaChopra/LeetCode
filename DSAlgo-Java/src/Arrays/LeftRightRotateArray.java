@@ -4,8 +4,12 @@ package Arrays;
 public class LeftRightRotateArray {
 	public static void main(String[] args) {
 
-		int array[] = { 1, 2, 3, 4, 5 };
-		int D = 2;
+		// int array[] = { 1, 2, 3, 4, 5 };
+		// int D = 2;
+
+		int array[] = { 10, 34, 56, 23, 78, 12, 13, 65 };
+		int D = 7;
+
 		int arr[] = rotateByIndex(array, D);
 		for (int index = 0; index < arr.length; index++) {
 			System.out.println(arr[index]);
