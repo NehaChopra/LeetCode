@@ -40,10 +40,10 @@ public class RotateOddRightAndEvenLeft {
 		/*
 		 * even number - left rotate
 		 */
-		for (int index = 3; index < length; index = index + 2) {
-			array[index - 2] = array[index];
-			if (index == oddIndex) {
-				array[index] = evenElement;
+		for (int index = 1; index < oddIndex; index = index + 2) {
+			array[index] = array[index + 2];
+			if (index + 2 == oddIndex) {
+				array[index + 2] = evenElement;
 			}
 		}
 		return array;
