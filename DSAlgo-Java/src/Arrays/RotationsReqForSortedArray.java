@@ -5,8 +5,8 @@ public class RotationsReqForSortedArray {
 	public static void main(String[] args) {
 
 		// int array[] = { 4, 5, 1, 2, 3 };
-		int array[] = { 5, 6, 1, 2, 3, 4 };
-		// int array[] = { 2, 1, 2, 2, 2 };
+		// int array[] = { 5, 6, 1, 2, 3, 4 };
+		int array[] = { 2, 1, 2, 2, 2 };
 		int deviatedIndex = binarySearchIndex(array, 0, array.length - 1);
 		int leftRotation = array.length - deviatedIndex;
 		int finalRotation = deviatedIndex < leftRotation ? deviatedIndex : leftRotation;
@@ -22,10 +22,9 @@ public class RotationsReqForSortedArray {
 			if ((middleIndex < high) && (array[middleIndex] < array[middleIndex + 1])) {
 				return middleIndex;
 			}
-			if (array[middleIndex] <= array[low]) {
+			if (array[middleIndex] < array[low]) {
 				return binarySearchIndex(array, low, middleIndex - 1);
-			}
-			if (array[middleIndex] > array[low]) {
+			} else {
 				return binarySearchIndex(array, middleIndex + 1, high);
 			}
 
