@@ -1,35 +1,45 @@
-//https://www.geeksforgeeks.org/k-maximum-sums-non-overlapping-contiguous-sub-arrays/
+//https://www.geeksforgeeks.org/k-maximum-sum-combinations-two-arrays/
 package Arrays;
 
 public class KMaxSumCombTwoArr {
 	public static void main(String[] args) {
-		// int arr1[] = { 4, 1, 1, -1, -3, -5, 6, 2, -6, -2 };
+		// int aarr[] = { 3, 2 };
+		// int barr[] = { 1, 4 };
+		// int k = 2;
+
+		// int aarr[] = { 4, 2, 5, 1 };
+		// int barr[] = { 8, 0, 3, 5 };
 		// int k = 3;
-		int arr1[] = { 5, 1, 2, -6, 2, -1, 3, 1 };
-		int k = 2;
-		int farr[] = KMaxSumCombTwoArr(arr1, k);
-		for (int index = 0; index < farr.length; index++) {
+
+		int aarr[] = { 1, 4, 2, 3 };
+		int barr[] = { 2, 5, 1, 6 };
+		int k = 4;
+		heapSort(aarr);
+		heapSort(barr);
+		int farr[] = kMaxSumCombination(aarr, barr, k);
+		for (int index = farr.length - 1; index >= 0; index--) {
 			System.out.println(farr[index]);
 		}
 	}
 
-	public static int[] KMaxSumCombTwoArr(int aarr[], int k) {
+	public static int[] kMaxSumCombination(int aarr[], int barr[], int k) {
 		int farr[] = new int[k];
-		int prevElement = 0;
-		for (int index = 0; index < aarr.length; index++) {
-			int element = aarr[index];
-			if (element < 0) {
-				if (prevElement > 0 && prevElement >= farr[0]) {
-					farr[0] = prevElement;
-					prevElement = 0;
-					heapSort(farr);
-				}
-				if (farr[0] <= 0 && (element > farr[0] || farr[0] == 0)) {
+		for (int index = 0, jIndex = 0; index < k && jIndex < k && k <= aarr.length
+				&& k <= barr.length; index++, jIndex++) {
+			if (index > 0 || jIndex > 0) {
+				int element = aarr[aarr.length - 1] + barr[barr.length - 1 - jIndex];
+				if (element > farr[0]) {
 					farr[0] = element;
-					heapSort(farr);
 				}
+				heapSort(farr);
+				element = aarr[aarr.length - 1 - index] + barr[barr.length - 1];
+				if (element > farr[0]) {
+					farr[0] = element;
+				}
+				heapSort(farr);
 			} else {
-				prevElement = prevElement + element;
+				farr[0] = aarr[aarr.length - 1] + barr[barr.length - 1];
+				heapSort(farr);
 			}
 		}
 		return farr;

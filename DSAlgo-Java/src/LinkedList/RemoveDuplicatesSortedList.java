@@ -36,13 +36,43 @@
 //		}
 //		node.next = head;
 //		head = node;
-//		return node;
+//		return head;
 //	}
 //
+//	public void removeDuplicatedFromSortedList(Node head) {
+//		Node prev = head;
+//		Node curr = head;
+//		while (curr != null) {
+//			if (prev.data == curr.data) {
+//				curr = curr.next;
+//			} else {
+//				prev.next = curr;
+//				prev = curr;
+//				curr = curr.next;
+//			}
+//		}
+//	}
+//
+//	public void print(Node head) {
+//		while (head != null) {
+//			System.out.println(head.data);
+//			head = head.next;
+//		}
+//	}
 //}
 //
-//public class RemoveDuplicate {
+//public class RemoveDuplicatesSortedList {
 //	public static void main(String[] args) {
+//		LinkedList ls = new LinkedList();
+//		ls.add(11);
+//		ls.add(11);
+//		ls.add(11);
+//		ls.add(21);
+//		ls.add(43);
+//		ls.add(43);
+//		ls.add(60);
+//		ls.removeDuplicatedFromSortedList(ls.head);
+//		ls.print(ls.head);
 //	}
 //
 //}

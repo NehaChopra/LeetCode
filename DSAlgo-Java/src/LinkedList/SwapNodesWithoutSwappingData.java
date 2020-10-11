@@ -1,5 +1,7 @@
-////https://www.geeksforgeeks.org/remove-duplicates-from-a-sorted-linked-list/
+////https://www.geeksforgeeks.org/swap-nodes-in-a-linked-list-without-swapping-data/
 //package LinkedList;
+//
+//import java.util.HashMap;
 //
 //class Node {
 //	int data;
@@ -36,13 +38,33 @@
 //		}
 //		node.next = head;
 //		head = node;
-//		return node;
+//		return head;
 //	}
 //
+//	public void swapNodeWithoutSwappingData(Node head) {
+//	}
+//
+//	public void print(Node head) {
+//		while (head != null) {
+//			System.out.println(head.data);
+//			head = head.next;
+//		}
+//	}
 //}
 //
-//public class RemoveDuplicate {
+//public class SwapNodesWithoutSwappingData {
 //	public static void main(String[] args) {
+//		LinkedList ls = new LinkedList();
+//		ls.add(12);
+//		ls.add(11);
+//		ls.add(12);
+//		ls.add(12);
+//		ls.add(21);
+//		ls.add(41);
+//		ls.add(43);
+//		ls.add(21);
+//		ls.swapNodeWithoutSwappingData(ls.head);
+//		ls.print(ls.head);
 //	}
 //
 //}

@@ -1,5 +1,7 @@
-////https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
+////https://www.geeksforgeeks.org/move-last-element-to-front-of-a-given-linked-list/
 //package LinkedList;
+//
+//import java.util.HashMap;
 //
 //class Node {
 //	int data;
@@ -36,36 +38,40 @@
 //		}
 //		node.next = head;
 //		head = node;
-//		return node;
+//		return head;
 //	}
 //
-//	public Node middleElement(Node head) {
-//		if (head == null) {
-//			return null;
+//	public Node moveLastElementToFront(Node head) {
+//		Node prev = null;
+//		Node curr = head;
+//		while (curr.next != null) {
+//			prev = curr;
+//			curr = curr.next;
 //		}
-//		Node slow = head;
-//		Node fast = head;
-//		while (slow.next != null && fast.next != null) {
-//			slow = slow.next;
-//			fast = fast.next.next;
+//		prev.next = curr.next;
+//		curr.next = head;
+//		head = curr;
+//		return head;
+//	}
+//
+//	public void print(Node head) {
+//		while (head != null) {
+//			System.out.println(head.data);
+//			head = head.next;
 //		}
-//		if (slow == null) {
-//			return null;
-//		}
-//		return slow;
 //	}
 //}
 //
-//public class MiddleElement {
+//public class MoveLastEleFront {
 //	public static void main(String[] args) {
 //		LinkedList ls = new LinkedList();
-//		ls.add(10);
-//		ls.add(20);
-//		ls.add(11);
-//		ls.add(12);
-//		ls.add(14);
-//		Node middle = ls.middleElement(ls.head);
-//		System.out.println(middle.data);
+//		ls.add(1);
+//		ls.add(2);
+//		ls.add(3);
+//		ls.add(4);
+//		ls.add(5);
+//		ls.head = ls.moveLastElementToFront(ls.head);
+//		ls.print(ls.head);
 //	}
 //
 //}
