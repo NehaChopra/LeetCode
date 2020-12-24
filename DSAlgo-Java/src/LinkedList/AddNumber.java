@@ -1,4 +1,4 @@
-//https://www.geeksforgeeks.org/print-reverse-of-a-linked-list-without-actually-reversing/
+//https://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-lists/
 package LinkedList;
 
 import java.util.HashMap;
@@ -44,12 +44,15 @@ class LinkedList {
 		return head;
 	}
 
-	public void printReverseLinkedList(Node head) {
-		if (head == null) {
-			return;
+	public LinkedList addTwoNumber(Node head1, Node head2) {
+		LinkedList add = new LinkedList();
+		Node curr1 = head1;
+		Node curr12 = head2;
+		while (curr1 != null && curr12 != null) {
+			
 		}
-		printReverseLinkedList(head.next);
-		System.out.println(head.data);
+
+		return add;
 	}
 
 	public void print(Node head) {
@@ -60,15 +63,20 @@ class LinkedList {
 	}
 }
 
-public class PrintReverseLinkedList {
+public class AddNumber {
 	public static void main(String[] args) {
 		LinkedList ls1 = new LinkedList();
-		ls1.add(1);
-		ls1.add(2);
-		ls1.add(3);
-		ls1.add(4);
+		ls1.push(3);
+		ls1.push(6);
+		ls1.push(5);
 
-		ls1.printReverseLinkedList(ls1.head);
+		LinkedList ls2 = new LinkedList();
+		ls1.push(2);
+		ls1.push(4);
+		ls1.push(8);
+
+		LinkedList ls3 = ls1.addTwoNumber(ls1.head, ls2.head);
+		ls3.print(ls3.head);
 	}
 
 }

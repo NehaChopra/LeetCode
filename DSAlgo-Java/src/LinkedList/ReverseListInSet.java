@@ -1,4 +1,4 @@
-//https://www.geeksforgeeks.org/print-reverse-of-a-linked-list-without-actually-reversing/
+//https://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/
 package LinkedList;
 
 import java.util.HashMap;
@@ -44,12 +44,23 @@ class LinkedList {
 		return head;
 	}
 
-	public void printReverseLinkedList(Node head) {
-		if (head == null) {
-			return;
+	public Node reverseLinkedListInSet(Node head, int k) {
+		Node prev = null;
+		Node curr = head;
+		Node next = null;
+		int count = 0;
+
+		while (count < k && curr != null) {
+			next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+			count = count + 1;
 		}
-		printReverseLinkedList(head.next);
-		System.out.println(head.data);
+		if (curr != null) {
+			head.next = reverseLinkedListInSet(curr, k);
+		}
+		return prev;
 	}
 
 	public void print(Node head) {
@@ -60,15 +71,21 @@ class LinkedList {
 	}
 }
 
-public class PrintReverseLinkedList {
+public class ReverseListInSet {
 	public static void main(String[] args) {
 		LinkedList ls1 = new LinkedList();
 		ls1.add(1);
 		ls1.add(2);
 		ls1.add(3);
 		ls1.add(4);
+		ls1.add(5);
+		ls1.add(6);
+		ls1.add(7);
+		ls1.add(8);
 
-		ls1.printReverseLinkedList(ls1.head);
+		int k = 3;
+		ls1.head = ls1.reverseLinkedListInSet(ls1.head, k);
+		ls1.print(ls1.head);
 	}
 
 }

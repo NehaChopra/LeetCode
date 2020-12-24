@@ -1,4 +1,4 @@
-//https://www.geeksforgeeks.org/print-reverse-of-a-linked-list-without-actually-reversing/
+//https://www.geeksforgeeks.org/identical-linked-lists/
 package LinkedList;
 
 import java.util.HashMap;
@@ -44,12 +44,20 @@ class LinkedList {
 		return head;
 	}
 
-	public void printReverseLinkedList(Node head) {
-		if (head == null) {
-			return;
+	public boolean identicalLinkedList(Node head, Node head1) {
+		Node prev = null;
+		Node curr = head;
+		Node curr1 = head1;
+		while (curr != null && curr1 != null) {
+			if (curr.data != curr1.data) {
+				return false;
+			}
+			curr = curr.next;
+			curr1 = curr1.next;
+
 		}
-		printReverseLinkedList(head.next);
-		System.out.println(head.data);
+
+		return true;
 	}
 
 	public void print(Node head) {
@@ -60,15 +68,19 @@ class LinkedList {
 	}
 }
 
-public class PrintReverseLinkedList {
+public class IdenticalLinkedList {
 	public static void main(String[] args) {
 		LinkedList ls1 = new LinkedList();
 		ls1.add(1);
 		ls1.add(2);
 		ls1.add(3);
-		ls1.add(4);
 
-		ls1.printReverseLinkedList(ls1.head);
+		LinkedList ls2 = new LinkedList();
+		ls2.add(1);
+		ls2.add(3);
+		ls2.add(3);
+
+		System.out.println(ls1.identicalLinkedList(ls1.head, ls2.head));
 	}
 
 }

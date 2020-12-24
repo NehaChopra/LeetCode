@@ -1,4 +1,4 @@
-//https://www.geeksforgeeks.org/print-reverse-of-a-linked-list-without-actually-reversing/
+//https://www.geeksforgeeks.org/delete-alternate-nodes-of-a-linked-list/
 package LinkedList;
 
 import java.util.HashMap;
@@ -44,12 +44,20 @@ class LinkedList {
 		return head;
 	}
 
-	public void printReverseLinkedList(Node head) {
-		if (head == null) {
-			return;
+	public void deleteAlternateNode(Node head) {
+		Node prev = null;
+		Node curr = head;
+		Node next = null;
+
+		while (curr != null && curr.next != null) {
+			next = curr.next;
+			if (next != null) {
+				next = next.next;
+			}
+			curr.next = next;
+			prev = curr;
+			curr = next;
 		}
-		printReverseLinkedList(head.next);
-		System.out.println(head.data);
 	}
 
 	public void print(Node head) {
@@ -60,15 +68,17 @@ class LinkedList {
 	}
 }
 
-public class PrintReverseLinkedList {
+public class DeleteAltNode {
 	public static void main(String[] args) {
 		LinkedList ls1 = new LinkedList();
 		ls1.add(1);
 		ls1.add(2);
 		ls1.add(3);
 		ls1.add(4);
+		// ls1.add(5);
 
-		ls1.printReverseLinkedList(ls1.head);
+		ls1.deleteAlternateNode(ls1.head);
+		ls1.print(ls1.head);
 	}
 
 }

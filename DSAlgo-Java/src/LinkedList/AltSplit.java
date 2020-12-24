@@ -1,4 +1,4 @@
-//https://www.geeksforgeeks.org/print-reverse-of-a-linked-list-without-actually-reversing/
+//https://www.geeksforgeeks.org/alternating-split-of-a-given-singly-linked-list/
 package LinkedList;
 
 import java.util.HashMap;
@@ -44,12 +44,13 @@ class LinkedList {
 		return head;
 	}
 
-	public void printReverseLinkedList(Node head) {
-		if (head == null) {
-			return;
-		}
-		printReverseLinkedList(head.next);
-		System.out.println(head.data);
+	public Node alternateSplitOfLinkedList(Node head) {
+		Node head1 = head;
+		Node prev = null;
+		Node curr = head;
+		Node next = null;
+
+		return head1;
 	}
 
 	public void print(Node head) {
@@ -60,15 +61,19 @@ class LinkedList {
 	}
 }
 
-public class PrintReverseLinkedList {
+public class AltSplit {
 	public static void main(String[] args) {
 		LinkedList ls1 = new LinkedList();
+		ls1.add(0);
 		ls1.add(1);
-		ls1.add(2);
-		ls1.add(3);
-		ls1.add(4);
+		ls1.add(0);
+		ls1.add(1);
+		ls1.add(0);
+		ls1.add(1);
 
-		ls1.printReverseLinkedList(ls1.head);
+		LinkedList ls2 = ls1;
+		ls1.print(ls1.alternateSplitOfLinkedList(ls1.head));
+		ls1.print(ls1.alternateSplitOfLinkedList(ls1.head.next));
 	}
 
 }
