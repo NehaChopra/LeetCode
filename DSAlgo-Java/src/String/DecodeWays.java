@@ -56,10 +56,10 @@ public class DecodeWays {
 		for (int index = 2; index <= strLength; index++) {
 			int oneCharElement = Integer.valueOf(str.substring(index - 1, index));
 			int twoCharElement = Integer.valueOf(str.substring(index - 2, index));
-			if (oneCharElement >=1 && oneCharElement <= 9) {
+			if (oneCharElement > 0 && oneCharElement < 10) {
 				array[index] = array[index] + array[index - 1];
 			}
-			if (twoCharElement >=10 && oneCharElement <= 26) {
+			if (twoCharElement > 9 && twoCharElement < 27) {
 				array[index] = array[index] + array[index - 2];
 			}
 		}
