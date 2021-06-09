@@ -4,9 +4,10 @@ import java.util.HashMap;
 
 public class LongestArithmeticSubsequence {
 	public static void main(String[] args) {
-		 int[] nums = { 3, 6, 9, 12 };
+//		 int[] nums = { 3, 6, 9, 12 };
 //		int[] nums = { 9, 4, 7, 2, 10 };
 //		 int[] nums = {20,1,15,3,10,5,8};
+		int[] nums = {24,13,1,100,0,94,3,0,3};
 		System.out.println(longestArithmeticSequenceLenght(nums));
 	}
 
