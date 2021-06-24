@@ -9,7 +9,7 @@ public class KWeakestRowsMatrix {
 		int[] ans = new int[k];
 
 		for (int i = 0; i < mat.length; i++) {
-			pq.offer(new int[] { numOnes(mat[i]), i });
+			pq.add(new int[] { numOnes(mat[i]), i });
 			if (pq.size() > k)
 				pq.poll();
 		}
