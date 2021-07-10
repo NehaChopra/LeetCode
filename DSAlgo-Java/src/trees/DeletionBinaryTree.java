@@ -47,6 +47,9 @@ public class DeletionBinaryTree {
 	}
 
 	static public Node findRightMostNode(Node root, Node lastNode) {
+		if (root == null || lastNode == null) {
+			return root;
+		}
 		Queue<Node> queue = new LinkedList<Node>();
 		queue.add(root);
 
@@ -64,6 +67,10 @@ public class DeletionBinaryTree {
 	}
 
 	static public Node deleteAndReplace(Node root, int key) {
+		if (root == null) {
+			return root;
+		}
+
 		Queue<Node> queue = new LinkedList<Node>();
 		queue.add(root);
 		Node nodeToDelete = null;
@@ -83,6 +90,9 @@ public class DeletionBinaryTree {
 				lastRightBeforeNode = tempNode;
 				queue.add(tempNode.rightChild);
 			}
+		}
+		if (nodeToDelete == null || lastRightNode == null) {
+			return root;
 		}
 		findRightMostNode(root, lastRightBeforeNode);
 		nodeToDelete.data = lastRightNode.data;
@@ -108,7 +118,7 @@ public class DeletionBinaryTree {
 
 		printInorderTraversal(root);
 
-		int key = 11;
+		int key = 19;
 		deleteAndReplace(root, key);
 
 		printInorderTraversal(root);
