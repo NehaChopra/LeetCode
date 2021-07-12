@@ -1,6 +1,6 @@
 //http://www.geeksforgeeks.org/avl-tree-set-1-insertion/
 
-package tree;
+package trees;
 
 class Node {
 	int data;
@@ -16,11 +16,11 @@ class Node {
 	}
 }
 
-class AVLTreeInsertion {
+public class AVLInsertion {
 	Node root;
 
 	public static void main(String args[]) {
-		AVLTreeInsertion obj = new AVLTreeInsertion();
+		AVLInsertion obj = new AVLInsertion();
 		obj.root = obj.createAVL(obj.root, 10);
 		obj.root = obj.createAVL(obj.root, 20);
 		obj.root = obj.createAVL(obj.root, 30);
