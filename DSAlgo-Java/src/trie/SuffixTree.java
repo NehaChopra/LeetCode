@@ -49,11 +49,11 @@ class Trie {
 	}
 }
 
-public class PatternSearching {
+public class SuffixTree {
 	static Trie trie;
 
 	public static void main(String[] args) {
-		PatternSearching obj = new PatternSearching();
+		SuffixTree obj = new SuffixTree();
 		obj.trie = new Trie();
 		TrieNode root = new TrieNode();
 		trie.root = root;
