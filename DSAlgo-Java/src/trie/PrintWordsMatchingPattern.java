@@ -72,8 +72,10 @@ class TrieMM {
 			}
 			cwral = cwral.children[elementIndex];
 		}
-		cwral.endOfWord = true;
-		cwral.words.add(key);
+		if (!cwral.endOfWord) {
+			cwral.endOfWord = true;
+			cwral.words.add(key);
+		}
 	}
 
 	public List<String> search(String key) {
@@ -95,12 +97,12 @@ public class PrintWordsMatchingPattern {
 		TrieNodeMM root = new TrieNodeMM();
 		obj.root = root;
 
-		List<String> dict = Arrays.asList("Hi", "Hello", "HelloWorld", "HiTech", "HiGeek", "HiTechWorld", "HiTechCity",
-				"HiTechLab");
+		List<String> dict = Arrays.asList("Hi", "Hello", "Hey", "HelloWorld", "HiTech", "HiGeek", "HiTechWorld",
+				"HiTechCity", "HiTechLab");
 
 		dict.stream().forEach(word -> obj.insert(word));
-		// String pattern = "HT";
-		String pattern = "H";
+		 String pattern = "HT";
+//		String pattern = "H";
 		List<String> words = obj.search(pattern);
 		words.stream().forEach(word -> System.out.println(word));
 
